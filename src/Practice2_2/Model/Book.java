@@ -1,4 +1,4 @@
-package practice2_2.Model;
+package Practice2_2.Model;
 
 public class Book
 {

@@ -1,6 +1,6 @@
-package practice2_1.shapecomparators;
+package Practice2_1.ShapeComparators;
 
-import practice2_1.Shape;
+import Practice2_1.Entities.Shape;
 
 import java.util.Comparator;
 

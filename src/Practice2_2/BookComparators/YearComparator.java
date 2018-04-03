@@ -1,6 +1,6 @@
-package practice2_2.BookComparators;
+package Practice2_2.BookComparators;
 
-import practice2_2.Model.Book;
+import Practice2_2.Model.Book;
 
 import java.util.Comparator;
 

@@ -1,4 +1,6 @@
-package practice2_1;
+package Practice2_1;
+
+import Practice2_1.Entities.Shape;
 
 public class Handler
 {

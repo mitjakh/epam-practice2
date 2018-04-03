@@ -1,7 +1,7 @@
-package practice2_2.Model;
+package Practice2_2.Model;
 
-import practice2_2.BookComparators.PublisherComparator;
-import practice2_2.BookComparators.YearComparator;
+import Practice2_2.BookComparators.PublisherComparator;
+import Practice2_2.BookComparators.YearComparator;
 
 import java.util.Arrays;
 

@@ -1,17 +1,17 @@
-package practice2_1;
+package Practice2_1.Entities;
 
 public class Rectangle extends Shape
 {
     private int sideA, sideB;
 
-    Rectangle(int sideA, int sideB, String shapeColor)
+    public Rectangle(int sideA, int sideB, String shapeColor)
     {
         this.sideA = sideA;
         this.sideB = sideB;
         this.shapeColor = shapeColor;
     }
 
-    Rectangle()
+    public Rectangle()
     {
         System.out.println("Invalid rectangle, no parameters.");
     }

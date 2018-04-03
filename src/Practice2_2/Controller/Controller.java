@@ -1,8 +1,8 @@
-package practice2_2.Controller;
+package Practice2_2.Controller;
 
-import practice2_2.Model.Book;
-import practice2_2.Model.DataHandler;
-import practice2_2.View.Menu;
+import Practice2_2.Model.Book;
+import Practice2_2.Model.DataHandler;
+import Practice2_2.View.Menu;
 
 import java.util.Scanner;
 

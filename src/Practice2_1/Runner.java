@@ -1,7 +1,11 @@
-package practice2_1;
+package Practice2_1;
 
-import practice2_1.shapecomparators.AreaComparator;
-import practice2_1.shapecomparators.ColorComparator;
+import Practice2_1.Entities.Circle;
+import Practice2_1.Entities.Rectangle;
+import Practice2_1.Entities.Shape;
+import Practice2_1.Entities.Triangle;
+import Practice2_1.ShapeComparators.AreaComparator;
+import Practice2_1.ShapeComparators.ColorComparator;
 
 import java.util.Arrays;
 

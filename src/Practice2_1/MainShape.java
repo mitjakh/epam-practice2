@@ -1,4 +1,4 @@
-package practice2_1;
+package Practice2_1;
 
 public class MainShape
 {

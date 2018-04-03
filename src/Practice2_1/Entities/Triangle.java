@@ -1,17 +1,17 @@
-package practice2_1;
+package Practice2_1.Entities;
 
 public class Triangle extends Shape
 {
     private int base, height;
 
-    Triangle(int base, int height, String shapeColor)
+    public Triangle(int base, int height, String shapeColor)
     {
         this.base = base;
         this.height = height;
         this.shapeColor = shapeColor;
     }
 
-    Triangle()
+    public Triangle()
     {
         System.out.println("Invalid triangle, no parameters.");
     }

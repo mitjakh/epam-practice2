@@ -1,8 +1,8 @@
-package practice2_2;
+package Practice2_2;
 
-import practice2_2.Controller.Controller;
-import practice2_2.Model.DataHandler;
-import practice2_2.View.Menu;
+import Practice2_2.Controller.Controller;
+import Practice2_2.Model.DataHandler;
+import Practice2_2.View.Menu;
 
 public class MainLib
 {

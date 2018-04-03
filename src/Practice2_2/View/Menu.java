@@ -1,6 +1,6 @@
-package practice2_2.View;
+package Practice2_2.View;
 
-import practice2_2.Model.Book;
+import Practice2_2.Model.Book;
 
 import java.util.Scanner;
 
