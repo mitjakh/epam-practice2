@@ -37,5 +37,4 @@ public class Handler
         }
         return summaryArea;
     }
-
 }

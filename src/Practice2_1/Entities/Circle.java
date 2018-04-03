@@ -1,9 +1,10 @@
 package Practice2_1.Entities;
 
+import java.lang.Math;
+
 public class Circle extends Shape
 {
     private int diameter;
-    private final double Pi = 3.14;
 
     public Circle (int diameter, String shapeColor)
     {
@@ -19,7 +20,7 @@ public class Circle extends Shape
     @Override
     public double calcArea()
     {
-        return Pi * (diameter/2) * (diameter/2);
+        return Math.PI * diameter * diameter / 4;
     }
 
     @Override

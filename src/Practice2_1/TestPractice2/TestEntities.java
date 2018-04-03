@@ -21,10 +21,11 @@ public class TestEntities
     @Test
     public void testCircleCalcArea()
     {
-        Circle testCircle = new Circle(4, "black");
+        Circle testCircle = new Circle(3, "black");
 
         double result = testCircle.calcArea();
-        double expected = 12.566;
+//        double expected = 12.566;
+        double expected = 7.068375;
 
         assertEquals(expected, result, 0.01);
     }
