@@ -23,13 +23,13 @@ public class Menu
 
     public void run()
     {
-        Scanner scanner = new Scanner(System.in);
+        Scanner menuScanner = new Scanner(System.in);
         System.out.println("Press Enter to proceed.");
-        scanner.nextLine();
+        menuScanner.nextLine();
         showMenu();
 
-        if (scanner.hasNextInt())
-            choice = scanner.nextInt();
+        if (menuScanner.hasNextInt())
+            choice = menuScanner.nextInt();
         else
             choice = 12523;
     }

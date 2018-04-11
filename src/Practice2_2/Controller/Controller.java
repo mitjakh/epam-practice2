@@ -14,6 +14,7 @@ public class Controller
     {
         Scanner scanner = new Scanner(System.in);
         Book[] requested = new Book[]{};
+        boolean ifSave = false;
 
         while (true)
         {
@@ -52,7 +53,7 @@ public class Controller
                 case 5:
                 {
                     System.out.println("Enter full file location: ");
-                    if(handle.loadBooks(scanner.nextLine()))
+                    if(handle.loadFromFile(scanner.nextLine()))
                         System.out.println("Books initialized successfully.");
                     else
                         System.out.println("Error while initializing books. Try again.");
@@ -60,6 +61,23 @@ public class Controller
                 }
                 case 6:
                 {
+                    System.out.println("Do you need to save results to file? Y - yes, N - no, L - to change preferred file location.");
+                    String userChoice = scanner.nextLine();
+                    if (userChoice.equals("Y"))
+                    {
+                        ifSave = true;
+                        System.out.println("Enter preferred file location: ");
+                        handle.fileLocation = scanner.nextLine();
+                    }
+                    else if (userChoice.equals("L"))
+                    {
+                        System.out.println("Enter new preferred file location: ");
+                        handle.fileLocation = scanner.nextLine();
+                    }
+                    else if (userChoice.equals("N"))
+                    {
+                        ifSave = false;
+                    }
                     break;
                 }
                 case 0:
@@ -71,7 +89,16 @@ public class Controller
                     System.out.println("Wrong input, try again, please.");
                 }
             }
+
+            if (ifSave && requested.length > 0)
+            {
+                if (handle.saveToFile(requested))
+                   System.out.println("Books saved successfully.");
+                else
+                    System.out.println("An error occurred while saving books.");
+            }
             menu.showRequested(requested);
+
         }
     }
 }
