@@ -3,11 +3,16 @@ package Practice2_2.Model;
 import Practice2_2.BookComparators.PublisherComparator;
 import Practice2_2.BookComparators.YearComparator;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 public class DataHandler
 {
-    private Book[] books = new Book[]{new Book("Анна Каренина", "Толстой", "Русский вестник", 1975, 554, 350),
+    public static Book[] defaultBooks = new Book[]{new Book("Анна Каренина", "Толстой", "Русский вестник", 1975, 554, 350),
             new Book("Война и мир", "Толстой", "Русский вестник", 1965, 2041, 800),
             new Book("1984", "Оруэлл", "Secker and Warburg", 1949, 357, 250),
             new Book("Скотный двор", "Оруэлл", "АСТ", 2006, 120, 200),
@@ -17,9 +22,23 @@ public class DataHandler
             new Book("Мертвые души", "Гоголь", "Русский вестник", 1948, 554, 800),
             new Book("Ревизор", "Гоголь", "Домино", 2009, 234, 400)};
 
+    private Book[] books = new Book[]{};
+
+    private boolean ifLoaded = false;
+
+    public boolean ifLoaded()
+    {
+        return ifLoaded;
+    }
+
     public Book[] getBooks()
     {
         return books;
+    }
+
+    public void initializeBooks(Book[] books)
+    {
+        this.books = books;
     }
 
     public Book[] getAuthorBooks(String authorName, Book books[])
@@ -99,5 +118,57 @@ public class DataHandler
     public void sortByPublisher (Book books[])
     {
         Arrays.sort(books, new PublisherComparator());
+    }
+
+    public boolean loadBooks(String fileLocation) throws IOException
+    {
+        try
+        {
+            FileReader fileReader = new FileReader(fileLocation);
+            Scanner scanner = new Scanner(fileReader);
+            List<Book> bookList = new ArrayList<Book>();
+            int counterOverall = 0;
+            int counterSuccess = 0;
+
+            while (scanner.hasNextLine())
+            {
+                String read = scanner.nextLine();
+                counterOverall++;
+                String[] buffer = read.split(";");
+                String[] stringBuffer = new String[3];
+                int[] intBuffer = new int[3];
+
+                if (buffer.length >= 6)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        stringBuffer[i] = buffer[i];
+                        intBuffer[i] = Integer.parseInt(buffer[i+3]);
+                    }
+                    bookList.add(new Book(stringBuffer[0], stringBuffer[1], stringBuffer[2], intBuffer[0], intBuffer[1], intBuffer[2]));
+                    counterSuccess++;
+                }
+            }
+
+            Book[] books = bookList.toArray(new Book[bookList.size()]);
+
+            fileReader.close();
+
+            this.books = books;
+
+            System.out.println("Success: " + counterSuccess + ". Error: " + (counterOverall - counterSuccess) + ". Overall: " + counterOverall +
+                    " Success rate: " + (counterSuccess * 100 / counterOverall) + "%.");
+            return true;
+
+        }
+        catch(IOException e)
+        {
+            return false;
+        }
+    }
+
+    public boolean saveToFile()
+    {
+        return true;
     }
 }

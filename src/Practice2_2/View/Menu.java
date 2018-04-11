@@ -13,11 +13,13 @@ public class Menu
         return choice;
     }
 
-    String[] menuEntries = new String[] {"1. Get the books of certain author",
-            "2. Get the books of certain publisher",
-            "3. Get the books after certain year",
-            "4. Sort the books by publisher",
-            "0. Exit the program"};
+    private String menuEntries = "1. Get the books of certain author\n" +
+        "2. Get the books of certain publisher\n" +
+        "3. Get the books after certain year\n" +
+        "4. Sort the books by publisher\n" +
+        "5. Get the books from the file\n" +
+        "6. Write the books into the file\n" +
+        "0. Exit the program";
 
     public void run()
     {
@@ -25,15 +27,16 @@ public class Menu
         System.out.println("Press Enter to proceed.");
         scanner.nextLine();
         showMenu();
-        choice = scanner.nextInt();
+
+        if (scanner.hasNextInt())
+            choice = scanner.nextInt();
+        else
+            choice = 12523;
     }
 
     private void showMenu()
     {
-        for (String i : menuEntries)
-        {
-            System.out.println(i);
-        }
+        System.out.println(menuEntries);
     }
 
     public void showRequested(Book[] requested)
